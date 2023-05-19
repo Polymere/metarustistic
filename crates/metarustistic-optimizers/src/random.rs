@@ -1,3 +1,7 @@
-impl RandomOptimizer{
+pub struct RandomOptimizer{
     
+}
+
+impl RandomOptimizer{
+
 }
