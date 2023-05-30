@@ -1,12 +1,12 @@
 use rand::Rng;
 
-pub fn get_random_vec(n:i32,low:f64,high:f64)->Vec<f64>{
+pub fn get_random_vec(n:i32,low:f32,high:f32)->Vec<f32>{
     let mut rng: rand::rngs::ThreadRng = rand::thread_rng();
-    let vals: Vec<f64> = (0..n).map(|_| rng.gen_range(low..=high)).collect();
+    let vals: Vec<f32> = (0..n).map(|_| rng.gen_range(low..=high)).collect();
     return vals;
 }
 pub struct RandomWalk{
-    pub positions: Vec<f64>,
+    pub positions: Vec<f32>,
     pub step_number: i64,
 }
 
@@ -26,7 +26,7 @@ impl RandomWalk{
         self.step_number+=1;
     }
 
-    fn random_vec(&self)->Vec<f64>
+    fn random_vec(&self)->Vec<f32>
     {
         return get_random_vec(self.positions.len() as i32,-1.0, 1.0)
     }

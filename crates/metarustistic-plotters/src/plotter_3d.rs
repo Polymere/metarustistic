@@ -1,6 +1,6 @@
 use plotters::prelude::*;
 use metarustistic_functions::rastrigin;
-pub fn plot_traj(values:Vec<Vec<f64>>){
+pub fn plot_traj(values:Vec<Vec<f32>>){
     let root = BitMapBackend::new("/home/paul/3d-line.png", (640, 480)).into_drawing_area();
 
     root.fill(&WHITE).unwrap();
@@ -21,12 +21,12 @@ pub fn plot_traj(values:Vec<Vec<f64>>){
             SurfaceSeries::xoz(
                 (-51..51).map(|f| f as f64/10.0),
                 (-51..51).map(|f| f as f64/10.0),
-                |x,z| rastrigin(&vec![x as f64,z as f64])as f64,
+                |x,z| rastrigin(&vec![x as f32,z as f32])as f64,
             )
             .style(BLUE.mix(0.1).filled()),
         ).unwrap();
     chart.draw_series(LineSeries::new(
-        values.iter().map(|p| (p[0],p[2],p[1])),
+        values.iter().map(|p| (p[0] as f64,p[2]as f64,p[1]as f64)),
         &RED
     )).unwrap();
 }
