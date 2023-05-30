@@ -6,6 +6,10 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-metarustistic-functions={path="crates/metarustistic-functions"}
-metarustistic-optimizers={path="crates/metarustistic-optimizers"}
-metarustistic-plotters={path="crates/metarustistic-plotters"}
+plotters ="0.3.1"
+rand = "0.8.5"
+
+[profile.release]
+debug = true       # Debug symbols for our profiler.
+lto = true         # Link-time optimization.
+codegen-units = 1  # Slower compilation but faster code. 
