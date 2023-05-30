@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 plotters ="0.3.1"
+metarustistic-functions={path="../metarustistic-functions"}
